@@ -55,7 +55,44 @@ namespace Torres_de_Hanoi
 
         public int iterativo(int n, Pila ini, Pila fin, Pila aux)
         {
-            return 0;
+            int m = 0;
+            bool solution = false;
+
+            if(n%2 != 0)
+            {
+                Console.WriteLine("Numero impar");
+                while (solution == false) { 
+                    mover_disco(ini, fin);
+                    m++;
+                    
+                    if (fin.Size == n) { solution = true;  return m; }
+                    mover_disco(ini, aux);
+                    m++;
+                    
+                    if (fin.Size == n) { solution = true; return m; }
+                    mover_disco(aux, fin);
+                    m++;
+                    
+                    if (fin.Size == n) { solution = true; return m; }
+                }
+
+            } else if(n%2 == 0) {
+                while(solution == false) { 
+                    mover_disco(ini, aux);
+                    m++;
+                    
+                    if (fin.Size == n) { solution = true; return m; }
+                    mover_disco(ini, fin);
+                    m++;
+                    
+                    if (fin.Size == n) { solution = true; return m; }
+                    mover_disco(aux, fin);
+                    m++;
+                   
+                    if (fin.Size == n) { solution = true; return m; }
+                }
+            }
+            return m;
         }
 
     }
