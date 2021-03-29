@@ -8,6 +8,8 @@ namespace Torres_de_Hanoi
 {
     class Hanoi
     {
+        public int pasos = 0;
+        
         public void mover_disco(Pila a, Pila b)
         {
             bool mov_a_b;
@@ -93,6 +95,26 @@ namespace Torres_de_Hanoi
                 }
             }
             return m;
+        }
+        
+        public int recursivo(int n, Pila ini, Pila fin, Pila aux)
+        {
+           if(n == 1)
+            {
+                mover_disco(ini, fin);
+                pasos++;
+               return pasos;
+
+            } else
+            {
+      
+               recursivo(n-1, ini, aux, fin);
+                mover_disco(ini, fin);
+                pasos++;
+                recursivo(n - 1, aux, fin, ini);
+
+               return pasos;
+            }
         }
 
     }
