@@ -23,9 +23,23 @@ namespace Torres_de_Hanoi
                 Pila AUX = new Pila("aux");
                 Pila FIN = new Pila("fin");
 
-                Hanoi hanoi = new Hanoi();
-                int res = hanoi.iterativo(i, INI, FIN, AUX);
-                Console.WriteLine(res);
+                Console.WriteLine("Indica con qué método quieres resolver: 1-Iterativo 2-Recursivo");
+                int j = Convert.ToInt32(Console.ReadLine());
+                if (j == 1)
+                {
+                    Hanoi hanoi = new Hanoi();
+                    int res = hanoi.iterativo(i, INI, FIN, AUX);
+                    Console.WriteLine(res);
+                } else if(j == 2)
+                {
+                    Hanoi hanoi = new Hanoi();
+                    int res = hanoi.recursivo(i, INI, FIN, AUX);
+                    Console.WriteLine(res);
+                }
+                else
+                {
+                    Console.WriteLine("Por favor, seleccione uno de los métodos anteriores");
+                }
                
                 
             } else
